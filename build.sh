@@ -1,0 +1,1 @@
+docker build -f app/Dockerfile -t crud_test_task:0.1 ./app
