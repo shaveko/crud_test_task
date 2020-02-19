@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+    db:
+        image: mysql:5.7
+        restart: always
+        env_file: .env
+        command: --disable-partition-engine-check
+        ports: 
+            - 3307:3306        
+    
+    app:
+        build: ./app
+        command: npm run dev
+        env_file: .env
+        ports:
+            - 3000:3000
+        volumes: 
+            - ./app:/usr/src/app

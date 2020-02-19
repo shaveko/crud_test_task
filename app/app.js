@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var db = require('./util/pool')();
 
 var indexRouter = require('./routes/index');
 var eventsRouter = require('./routes/events');
@@ -16,5 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
+
+
 
 module.exports = app;
